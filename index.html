@@ -651,8 +651,8 @@ function setMode(mode){
   document.getElementById('agentBtn').className='mode-btn'+(mode==='agent'?' active':'');
   document.getElementById('modeLabel').textContent=mode==='client'?'Here to help you find coverage':'Agent resources & recruiting';
   document.getElementById('suggestions').innerHTML=mode==='agent'
-    ?'<div class="suggestion" onclick="sendSuggestion('What are your commission rates?')">Commission rates</div><div class="suggestion" onclick="sendSuggestion('How do I join Pacific Ridgeway?')">Join the team</div>'
-    :'<div class="suggestion" onclick="sendSuggestion('What life insurance options do you offer?')">Life insurance</div><div class="suggestion" onclick="sendSuggestion('Tell me about annuities')">Annuities</div>';
+    ?'<div class="suggestion" onclick="sendSuggestion(\'What are your commission rates?\')">Commission rates</div><div class="suggestion" onclick="sendSuggestion(\'How do I join Pacific Ridgeway?\')">Join the team</div>'
+    :'<div class="suggestion" onclick="sendSuggestion(\'What life insurance options do you offer?\')">Life insurance</div><div class="suggestion" onclick="sendSuggestion(\'Tell me about annuities\')">Annuities</div>';
 }
 function sendSuggestion(text){document.getElementById('aiInput').value=text;sendMessage();}
 async function sendMessage(){
