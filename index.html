@@ -90,7 +90,7 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-f
 /* CEO FEATURED CARD */
 .ceo-card{display:grid;grid-template-columns:420px 1fr;gap:0;background:white;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);border:1px solid var(--gray-200);margin-bottom:40px;}
 .ceo-photo{position:relative;overflow:hidden;min-height:480px;}
-.ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:top 10%;display:block;}
+.ceo-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
 .ceo-photo-overlay{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,rgba(31,82,51,.8),transparent);}
 .ceo-info{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;}
 .ceo-role-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-pale);color:var(--green);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 18px;border-radius:100px;width:fit-content;margin-bottom:20px;border:1px solid var(--gold);}
@@ -108,7 +108,7 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-f
 .partner-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.07);border:1px solid var(--gray-200);transition:all .3s;}
 .partner-card:hover{box-shadow:0 20px 50px rgba(0,0,0,.12);transform:translateY(-4px);}
 .partner-photo-wrap{position:relative;height:340px;overflow:hidden;}
-.partner-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top 5%;transition:transform .4s;}
+.partner-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .4s;}
 .partner-card:hover .partner-photo-wrap img{transform:scale(1.05);}
 .partner-photo-gradient{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,rgba(31,82,51,.9),transparent);}
 .partner-name-overlay{position:absolute;bottom:20px;left:24px;right:24px;}
@@ -192,7 +192,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
 .junior-card{background:var(--off-white);border-radius:16px;overflow:hidden;border:1px solid var(--gray-200);transition:all .3s;}
 .junior-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.1);transform:translateY(-3px);border-color:var(--gold);}
 .junior-photo-wrap{position:relative;height:250px;overflow:hidden;}
-.junior-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top 5%;transition:transform .4s;}
+.junior-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .4s;}
 .junior-card:hover .junior-photo-wrap img{transform:scale(1.05);}
 .junior-photo-gradient{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(31,82,51,.85),transparent);}
 .junior-name-overlay{position:absolute;bottom:14px;left:18px;right:18px;}
@@ -238,6 +238,23 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
   .ceo-photo { height: 300px; }
   .partner-photo-wrap { height: 280px; }
 }
+
+.process-section{padding:80px 2rem;background:var(--off-white);}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
+.process-step{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:28px;}
+.process-step .pn{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--gold));color:#fff;font-family:'Playfair Display',serif;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.process-step h3{color:var(--green);font-size:18px;margin-bottom:8px;}
+.process-step p{color:var(--gray-600);font-size:14px;line-height:1.6;}
+.faq-section{padding:80px 2rem;background:#fff;}
+.faq-list{max-width:820px;margin:36px auto 0;}
+.faq-item{border:1px solid var(--gray-200);border-radius:12px;margin-bottom:14px;overflow:hidden;background:var(--off-white);}
+.faq-item summary{cursor:pointer;padding:20px 24px;font-weight:600;color:var(--green);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';color:var(--gold);font-size:22px;line-height:1;}
+.faq-item[open] summary::after{content:'\2212';}
+.faq-item .faq-a{padding:0 24px 20px;color:var(--gray-600);font-size:14px;line-height:1.7;}
+@media(max-width:860px){.process-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.process-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -258,6 +275,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <a onclick="scrollTo('junior-partners')">Our Team</a>
       <a onclick="scrollTo('why')">Why Us</a>
       <a onclick="scrollTo('contact')">Contact</a>
+      <a href="https://ridgecrm-production.up.railway.app" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;">🔐 Agent Login</a>
       <button class="nav-cta" onclick="scrollTo('contact')">Get Free Quote</button>
     </div>
   </div>
@@ -305,12 +323,12 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
     <h2 class="section-title">Complete <em>Coverage</em> for Every Stage of Life</h2>
     <p class="section-sub" style="margin-bottom:48px;">Six core insurance product lines, each designed to protect what matters most to your family.</p>
     <div class="products-grid">
-      <div class="product-card"><div class="product-icon">🛡️</div><h3>Life Insurance</h3><p>Term, universal, and permanent life insurance tailored to your family's needs and budget.</p><div class="product-tag">Most Popular</div></div>
-      <div class="product-card"><div class="product-icon">💝</div><h3>Final Expense</h3><p>Affordable whole life insurance covering funeral costs, medical bills, and end-of-life expenses.</p><div class="product-tag">No Medical Exam</div></div>
-      <div class="product-card"><div class="product-icon">📈</div><h3>Annuities</h3><p>Fixed, variable, and indexed annuities providing guaranteed retirement income you can count on.</p><div class="product-tag">Retirement Income</div></div>
-      <div class="product-card"><div class="product-icon">💰</div><h3>Indexed Universal Life (IUL)</h3><p>Flexible life insurance with cash value tied to market indexes. Grow wealth tax-advantaged.</p><div class="product-tag">Tax-Advantaged</div></div>
-      <div class="product-card"><div class="product-icon">⚕️</div><h3>Health Insurance</h3><p>Individual, family, and supplemental health coverage. Medicare supplements and more.</p><div class="product-tag">All Age Groups</div></div>
-      <div class="product-card"><div class="product-icon">🏛️</div><h3>Whole Life Insurance</h3><p>Permanent coverage that builds guaranteed cash value. A cornerstone of legacy planning.</p><div class="product-tag">Legacy Building</div></div>
+      <div class="product-card" onclick="location.href='products/life-insurance.html'" style="cursor:pointer"><div class="product-icon">🛡️</div><h3>Life Insurance</h3><p>Term, universal, and permanent life insurance tailored to your family's needs and budget.</p><div class="product-tag">Most Popular</div></div>
+      <div class="product-card" onclick="location.href='products/final-expense.html'" style="cursor:pointer"><div class="product-icon">💝</div><h3>Final Expense</h3><p>Affordable whole life insurance covering funeral costs, medical bills, and end-of-life expenses.</p><div class="product-tag">No Medical Exam</div></div>
+      <div class="product-card" onclick="location.href='products/annuities.html'" style="cursor:pointer"><div class="product-icon">📈</div><h3>Annuities</h3><p>Fixed, variable, and indexed annuities providing guaranteed retirement income you can count on.</p><div class="product-tag">Retirement Income</div></div>
+      <div class="product-card" onclick="location.href='products/iul.html'" style="cursor:pointer"><div class="product-icon">💰</div><h3>Indexed Universal Life (IUL)</h3><p>Flexible life insurance with cash value tied to market indexes. Grow wealth tax-advantaged.</p><div class="product-tag">Tax-Advantaged</div></div>
+      <div class="product-card" onclick="location.href='products/health-insurance.html'" style="cursor:pointer"><div class="product-icon">⚕️</div><h3>Health Insurance</h3><p>Individual, family, and supplemental health coverage. Medicare supplements and more.</p><div class="product-tag">All Age Groups</div></div>
+      <div class="product-card" onclick="location.href='products/whole-life.html'" style="cursor:pointer"><div class="product-icon">🏛️</div><h3>Whole Life Insurance</h3><p>Permanent coverage that builds guaranteed cash value. A cornerstone of legacy planning.</p><div class="product-tag">Legacy Building</div></div>
     </div>
   </div>
 </section>
@@ -321,14 +339,14 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
     <h2 class="section-title">Beyond Insurance — <em>Complete</em> Financial Planning</h2>
     <p class="section-sub" style="margin-bottom:48px;">A complete suite of financial planning services under one trusted roof.</p>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon">📜</div><h3>Trust Planning</h3><p>Revocable and irrevocable trust setup, asset protection, and estate transfer planning.</p></div>
-      <div class="service-card"><div class="service-icon">🧾</div><h3>CPA Services</h3><p>Tax planning, preparation, and advisory from certified accountants. Minimize your burden.</p></div>
-      <div class="service-card"><div class="service-icon">📊</div><h3>Financial Advisory</h3><p>Comprehensive financial planning, investment strategies, and retirement roadmaps.</p></div>
-      <div class="service-card"><div class="service-icon">🏡</div><h3>Estate Planning</h3><p>Wills, powers of attorney, healthcare directives, and probate avoidance strategies.</p></div>
-      <div class="service-card"><div class="service-icon">🎓</div><h3>Retirement Planning</h3><p>IRA, 401(k), Social Security optimization, and retirement income projections.</p></div>
-      <div class="service-card"><div class="service-icon">📋</div><h3>Tax Planning</h3><p>Year-round tax strategy, entity structuring, and deduction optimization.</p></div>
-      <div class="service-card"><div class="service-icon">🏢</div><h3>Business Planning</h3><p>Succession planning, key-man insurance, buy-sell agreements, and executive benefits.</p></div>
-      <div class="service-card"><div class="service-icon">👶</div><h3>College Funding</h3><p>529 plans, life insurance strategies, and savings optimization for education costs.</p></div>
+      <div class="service-card" onclick="location.href='products/trust-planning.html'" style="cursor:pointer"><div class="service-icon">📜</div><h3>Trust Planning</h3><p>Revocable and irrevocable trust setup, asset protection, and estate transfer planning.</p></div>
+      <div class="service-card" onclick="location.href='products/cpa-services.html'" style="cursor:pointer"><div class="service-icon">🧾</div><h3>CPA Services</h3><p>Tax planning, preparation, and advisory from certified accountants. Minimize your burden.</p></div>
+      <div class="service-card" onclick="location.href='products/financial-advisory.html'" style="cursor:pointer"><div class="service-icon">📊</div><h3>Financial Advisory</h3><p>Comprehensive financial planning, investment strategies, and retirement roadmaps.</p></div>
+      <div class="service-card" onclick="location.href='products/estate-planning.html'" style="cursor:pointer"><div class="service-icon">🏡</div><h3>Estate Planning</h3><p>Wills, powers of attorney, healthcare directives, and probate avoidance strategies.</p></div>
+      <div class="service-card" onclick="location.href='products/retirement-planning.html'" style="cursor:pointer"><div class="service-icon">🎓</div><h3>Retirement Planning</h3><p>IRA, 401(k), Social Security optimization, and retirement income projections.</p></div>
+      <div class="service-card" onclick="location.href='products/tax-planning.html'" style="cursor:pointer"><div class="service-icon">📋</div><h3>Tax Planning</h3><p>Year-round tax strategy, entity structuring, and deduction optimization.</p></div>
+      <div class="service-card" onclick="location.href='products/business-planning.html'" style="cursor:pointer"><div class="service-icon">🏢</div><h3>Business Planning</h3><p>Succession planning, key-man insurance, buy-sell agreements, and executive benefits.</p></div>
+      <div class="service-card" onclick="location.href='products/college-funding.html'" style="cursor:pointer"><div class="service-icon">👶</div><h3>College Funding</h3><p>529 plans, life insurance strategies, and savings optimization for education costs.</p></div>
     </div>
   </div>
 </section>
@@ -510,7 +528,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
           </select>
         </div>
         <div class="form-group"><textarea placeholder="Tell us a bit about your situation..."></textarea></div>
-        <button class="form-submit">Get My Free Consultation →</button>
+        <button class="form-submit" onclick="submitQuote()">Get My Free Consultation →</button>
       </div>
     </div>
   </div>
@@ -525,6 +543,34 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <div class="testimonial"><div class="stars">★★★★★</div><p>"After my husband passed, I didn't know what to do. The team at Pacific Ridgeway walked me through everything — the claim, retirement planning, all of it. They were incredible."</p><div class="testimonial-author"><div class="author-avatar">DM</div><div><div class="author-name">Diane M.</div><div class="author-role">Retired Educator</div></div></div></div>
       <div class="testimonial"><div class="stars">★★★★★</div><p>"Pacific Ridgeway is on another level. The annuity they set me up with generates more income than I expected, and their CPA saved me $8K in taxes last year."</p><div class="testimonial-author"><div class="author-avatar">KL</div><div><div class="author-name">Kevin L.</div><div class="author-role">Small Business Owner</div></div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="section-inner">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">A Simple Path to <em>Peace of Mind</em></h2>
+    <p class="section-sub">Working with Pacific Ridgeway is straightforward — here's what to expect.</p>
+    <div class="process-grid">
+      <div class="process-step"><div class="pn">1</div><h3>Reach Out</h3><p>Request a free quote or book a call. Tell us a little about your family and your goals.</p></div>
+      <div class="process-step"><div class="pn">2</div><h3>Free Review</h3><p>A licensed specialist reviews your situation and answers your questions — no pressure, no obligation.</p></div>
+      <div class="process-step"><div class="pn">3</div><h3>Your Custom Plan</h3><p>We compare options across carriers and recommend coverage that fits your needs and budget.</p></div>
+      <div class="process-step"><div class="pn">4</div><h3>Ongoing Support</h3><p>We stay with you for the long term, reviewing your plan as your life changes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag">Common Questions</div>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Does it cost anything to get a quote or consultation?</summary><div class="faq-a">No. Quotes and consultations are always free and come with no obligation — we're here to help you understand your options.</div></details>
+    <details class="faq-item"><summary>What does "independent" mean?</summary><div class="faq-a">We're not tied to a single insurance company. We compare options across many carriers to find the coverage and pricing that best fit your needs.</div></details>
+    <details class="faq-item"><summary>What areas do you serve?</summary><div class="faq-a">Our network of 50+ licensed agents serves families nationwide. Product availability can vary by state, and we'll let you know what's available to you.</div></details>
+    <details class="faq-item"><summary>Do you only offer insurance?</summary><div class="faq-a">No — beyond insurance we offer financial planning, retirement, tax, trust, and estate planning, all coordinated under one roof.</div></details>
+    <details class="faq-item"><summary>How do I get started?</summary><div class="faq-a">Request a free quote, book a call, or chat with our AI assistant — a licensed professional will follow up with you.</div></details>
   </div>
 </section>
 
@@ -547,9 +593,9 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
         <p>Your Legacy, Is Our Legacy. Independent insurance and financial planning for families nationwide.</p>
         <p style="margin-top:16px;color:rgba(255,255,255,.3);font-size:12px;">📧 stevenson@pacificridgewayinsurance.com</p>
       </div>
-      <div class="footer-col"><h4>Insurance</h4><a href="#">Life Insurance</a><a href="#">Final Expense</a><a href="#">Annuities</a><a href="#">IUL</a><a href="#">Health</a><a href="#">Whole Life</a></div>
-      <div class="footer-col"><h4>Financial</h4><a href="#">Trust Planning</a><a href="#">CPA Services</a><a href="#">Financial Advisory</a><a href="#">Estate Planning</a><a href="#">Retirement</a><a href="#">Tax Planning</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Leadership</a><a href="#">Join Our Team</a><a href="https://ridgecrm-production.up.railway.app" target="_blank" rel="noopener">Agent Portal</a><a href="#">Contact</a></div>
+      <div class="footer-col"><h4>Insurance</h4><a href="products/life-insurance.html">Life Insurance</a><a href="products/final-expense.html">Final Expense</a><a href="products/annuities.html">Annuities</a><a href="products/iul.html">IUL</a><a href="products/health-insurance.html">Health</a><a href="products/whole-life.html">Whole Life</a></div>
+      <div class="footer-col"><h4>Financial</h4><a href="products/trust-planning.html">Trust Planning</a><a href="products/cpa-services.html">CPA Services</a><a href="products/financial-advisory.html">Financial Advisory</a><a href="products/estate-planning.html">Estate Planning</a><a href="products/retirement-planning.html">Retirement</a><a href="products/tax-planning.html">Tax Planning</a></div>
+      <div class="footer-col"><h4>Company</h4><a onclick="scrollTo('why')" style="cursor:pointer">About Us</a><a onclick="scrollTo('leadership')" style="cursor:pointer">Leadership</a><a href="mailto:stevenson@pacificridgewayinsurance.com?subject=I%27d%20like%20to%20join%20the%20Pacific%20Ridgeway%20team">Join Our Team</a><a href="https://ridgecrm-production.up.railway.app" target="_blank" rel="noopener">Agent Portal</a><a onclick="scrollTo('contact')" style="cursor:pointer">Contact</a></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2024 Pacific Ridgeway Insurance Solutions. All rights reserved.</p>
@@ -649,6 +695,18 @@ function addMessage(role,text){
   msgs.appendChild(div);scrollMessages();
 }
 function scrollMessages(){const m=document.getElementById('aiMessages');m.scrollTop=m.scrollHeight;}
+
+function submitQuote(){
+  var p=document.getElementById('contact');
+  var ins=p.querySelectorAll('input');
+  var name=ins[0].value.trim(), email=ins[1].value.trim(), phone=ins[2].value.trim();
+  var interest=p.querySelector('select').value;
+  var msg=p.querySelector('textarea').value;
+  if(!name||!email){alert('Please enter your name and email so we can reach you.');return;}
+  var subject='Free Consultation Request — '+(interest||'General')+' — '+name;
+  var body='Name: '+name+'\nEmail: '+email+'\nPhone: '+phone+'\nInterested in: '+(interest||'(not specified)')+'\n\nSituation:\n'+msg;
+  window.location.href='mailto:stevenson@pacificridgewayinsurance.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
 </script>
 </body>
 </html>
