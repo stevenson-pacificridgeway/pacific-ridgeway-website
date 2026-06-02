@@ -7,6 +7,9 @@
 <title>Pacific Ridgeway Insurance Solutions</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+section[id],div[id]{scroll-margin-top:90px;}
+a.btn-primary,a.btn-outline,a.btn-gold,a.btn-white-outline{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}
 :root{
   --green:#1F5233;--green-dark:#162038;--green-light:#2a6b44;
   --gold:#C9A961;--gold-light:#e0c078;--gold-pale:#f5ead4;
@@ -22,6 +25,10 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-f
 .logo-text h1{font-size:17px;color:var(--green);font-weight:700;line-height:1;}
 .logo-text p{font-size:11px;color:var(--gray-600);margin-top:2px;}
 .nav-links{display:flex;align-items:center;gap:28px;}
+.nav-toggle{display:none;}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:10px;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--green);border-radius:2px;}
+
 .nav-links a{text-decoration:none;color:var(--gray-700);font-size:14px;font-weight:500;transition:color .2s;cursor:pointer;}
 .nav-links a:hover{color:var(--green);}
 .nav-cta{background:var(--green);color:white;border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
@@ -224,7 +231,11 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
   .why-items { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .testimonials-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
+  .hamburger{display:flex;}
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:6px 0;border-bottom:1px solid var(--gray-200);box-shadow:0 10px 30px rgba(0,0,0,.1);}
+  .nav-toggle:checked ~ .nav-links{display:flex;}
+  .nav-links a{padding:14px 24px;width:100%;}
+  .nav-links .nav-cta{margin:8px 24px;border-radius:6px;justify-content:center;}
   .section-title { font-size: 30px; }
   .ai-panel { width: 320px; }
 }
@@ -268,15 +279,17 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
         <p>Insurance Solutions</p>
       </div>
     </div>
+    <input type="checkbox" id="navToggle" class="nav-toggle">
+    <label for="navToggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
     <div class="nav-links">
-      <a onclick="scrollTo('products')">Products</a>
-      <a onclick="scrollTo('financial')">Financial Services</a>
-      <a onclick="scrollTo('leadership')">Leadership</a>
-      <a onclick="scrollTo('junior-partners')">Our Team</a>
-      <a onclick="scrollTo('why')">Why Us</a>
-      <a onclick="scrollTo('contact')">Contact</a>
+      <a href="#products">Products</a>
+      <a href="#financial">Financial Services</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#junior-partners">Our Team</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
       <a href="https://ridgecrm-production.up.railway.app" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;">🔐 Agent Login</a>
-      <button class="nav-cta" onclick="scrollTo('contact')">Get Free Quote</button>
+      <a href="#contact" class="nav-cta">Get Free Quote</a>
     </div>
   </div>
 </nav>
@@ -288,8 +301,8 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <h1>Protecting Your Family's <em>Legacy</em></h1>
       <p>50+ licensed agents. $250K+ paid out every quarter. Comprehensive financial solutions from life insurance to trust planning — all under one roof.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="scrollTo('contact')">Get My Free Quote</button>
-        <button class="btn-outline" onclick="scrollTo('products')">See All Products</button>
+        <a class="btn-primary" href="#contact">Get My Free Quote</a>
+        <a class="btn-outline" href="#products">See All Products</a>
       </div>
     </div>
     <div class="stats-grid">
@@ -579,7 +592,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
     <h2>Ready to <em>Protect</em> What Matters?</h2>
     <p>Join thousands of families who trust Pacific Ridgeway with their financial future.</p>
     <div class="cta-btns">
-      <button class="btn-gold" onclick="scrollTo('contact')">Get My Free Quote</button>
+      <a class="btn-gold" href="#contact">Get My Free Quote</a>
       <button class="btn-white-outline" onclick="openChat()">Talk to Our AI Agent</button>
     </div>
   </div>
