@@ -683,6 +683,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <div class="suggestion" onclick="sendSuggestion('What life insurance options do you offer?')">Life insurance</div>
       <div class="suggestion" onclick="sendSuggestion('Tell me about annuities')">Annuities</div>
       <div class="suggestion" onclick="sendSuggestion('How do I get a quote?')">Get a quote</div>
+      <div class="suggestion" onclick="window.open('https://calendly.com/gregorystevenson/annuity-call','_blank')" style="background:#1F5233;color:#fff">📅 Book a 15-min call</div>
     </div>
     <div class="ai-input-area">
       <input class="ai-input" id="aiInput" placeholder="Ask Ridge AI anything..." onkeypress="if(event.key==='Enter')sendMessage()"/>
@@ -702,9 +703,10 @@ function setMode(mode){
   document.getElementById('clientBtn').className='mode-btn'+(mode==='client'?' active':'');
   document.getElementById('agentBtn').className='mode-btn'+(mode==='agent'?' active':'');
   document.getElementById('modeLabel').textContent=mode==='client'?'Here to help you find coverage':'Agent resources & recruiting';
-  document.getElementById('suggestions').innerHTML=mode==='agent'
+  const bookChip='<div class="suggestion" onclick="window.open(\'https://calendly.com/gregorystevenson/annuity-call\',\'_blank\')" style="background:#1F5233;color:#fff">📅 Book a 15-min call</div>';
+  document.getElementById('suggestions').innerHTML=(mode==='agent'
     ?'<div class="suggestion" onclick="sendSuggestion(\'What are your commission rates?\')">Commission rates</div><div class="suggestion" onclick="sendSuggestion(\'How do I join Pacific Ridgeway?\')">Join the team</div>'
-    :'<div class="suggestion" onclick="sendSuggestion(\'What life insurance options do you offer?\')">Life insurance</div><div class="suggestion" onclick="sendSuggestion(\'Tell me about annuities\')">Annuities</div>';
+    :'<div class="suggestion" onclick="sendSuggestion(\'What life insurance options do you offer?\')">Life insurance</div><div class="suggestion" onclick="sendSuggestion(\'Tell me about annuities\')">Annuities</div>')+bookChip;
 }
 function sendSuggestion(text){document.getElementById('aiInput').value=text;sendMessage();}
 async function sendMessage(){
