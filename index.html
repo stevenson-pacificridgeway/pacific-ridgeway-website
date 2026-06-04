@@ -722,13 +722,10 @@ async function sendMessage(){
   typingEl.innerHTML='<div class="msg-icon">🤖</div><div class="typing"><span></span><span></span><span></span></div>';
   document.getElementById('aiMessages').appendChild(typingEl);
   scrollMessages();
-  const sys=currentMode==='client'
-    ?'You are Ridge, AI assistant for Pacific Ridgeway Insurance Solutions. Help clients understand insurance and financial planning options. Products: Life Insurance, Final Expense, Annuities, IUL, Health Insurance, Whole Life. Financial services: Trust Planning, CPA Services, Financial Advisory, Estate Planning, Retirement Planning, Tax Planning. 50+ licensed agents, $250K+ quarterly payouts, 10,000+ families served. CEO: Gregory Stevenson, Principal: Mariah Stevenson, Senior Partner: Josh McCreary. Contact: stevenson@pacificridgewayinsurance.com. Be warm and professional. Keep responses to 2-3 sentences. Always suggest a free consultation.'
-    :'You are Ridge, AI assistant for Pacific Ridgeway — helping agents and prospects. Commissions: Life 40-65%, Annuities 5-7% recurring, IUL 50-75%, Final Expense 50-85%, Health 8-12%, Whole Life 45-60%. 50+ agents, $250K+ quarterly. Training, CRM, marketing support provided. CEO: Gregory Stevenson. Contact: stevenson@pacificridgewayinsurance.com. Be energetic and opportunity-focused. 2-3 sentences max. Encourage them to apply.';
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:chatHistory})});
+    const resp=await fetch('https://ridgecrm-production.up.railway.app/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mode:currentMode,messages:chatHistory})});
     const data=await resp.json();
-    const reply=data.content?.[0]?.text||'Please try again or email stevenson@pacificridgewayinsurance.com';
+    const reply=data.reply||'Please email stevenson@pacificridgewayinsurance.com';
     document.getElementById('typing')?.remove();
     addMessage('ai',reply);
     chatHistory.push({role:'assistant',content:reply});
