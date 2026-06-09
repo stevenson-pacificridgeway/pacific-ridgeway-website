@@ -272,9 +272,9 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
 
 .carriers{padding:70px 2rem;background:#fff;overflow:hidden;}
 .carrier-track-wrap{overflow:hidden;margin-top:38px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
-.carrier-track{display:flex;gap:18px;width:max-content;animation:carrierScroll 45s linear infinite;}
+.carrier-track{display:flex;width:max-content;animation:carrierScroll 45s linear infinite;will-change:transform;transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 .carriers:hover .carrier-track{animation-play-state:running;}
-.carrier-card{flex:0 0 auto;background:#fff;border:1px solid var(--gray-200);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.carrier-card{flex:0 0 auto;margin-right:18px;background:#fff;border:1px solid var(--gray-200);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 .carrier-card img{display:block;width:230px;height:118px;object-fit:contain;background:#fff;}
 @keyframes carrierScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media(max-width:768px){.carrier-card img{width:165px;height:90px;}}
@@ -362,6 +362,10 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <div class="service-card" onclick="location.href='products/tax-planning.html'" style="cursor:pointer"><div class="service-icon">📋</div><h3>Tax Planning</h3><p>Year-round tax strategy, entity structuring, and deduction optimization.</p></div>
       <div class="service-card" onclick="location.href='products/business-planning.html'" style="cursor:pointer"><div class="service-icon">🏢</div><h3>Business Planning</h3><p>Succession planning, key-man insurance, buy-sell agreements, and executive benefits.</p></div>
       <div class="service-card" onclick="location.href='products/college-funding.html'" style="cursor:pointer"><div class="service-icon">👶</div><h3>College Funding</h3><p>529 plans, life insurance strategies, and savings optimization for education costs.</p></div>
+      <div class="service-card" onclick="location.href='products/alternative-investments.html'" style="cursor:pointer"><div class="service-icon">💎</div><h3>Alternative Investments</h3><p>Private real estate, structured notes, and non-correlated assets beyond the stock market.</p></div>
+      <div class="service-card" onclick="location.href='products/debt-management.html'" style="cursor:pointer"><div class="service-icon">💳</div><h3>Debt Management</h3><p>Eliminate high-interest debt, restructure liabilities, and free up monthly cash flow.</p></div>
+      <div class="service-card" onclick="location.href='products/insurance-strategies.html'" style="cursor:pointer"><div class="service-icon">🛡️</div><h3>Insurance Strategies</h3><p>Advanced life and annuity strategies for tax-advantaged income, leverage, and legacy.</p></div>
+      <div class="service-card" onclick="location.href='products/revenue-sharing.html'" style="cursor:pointer"><div class="service-icon">🤝</div><h3>Revenue Sharing Program</h3><p>Partner with Pacific Ridgeway and earn through our referral and revenue-sharing model.</p></div>
     </div>
   </div>
 </section>
