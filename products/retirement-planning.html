@@ -393,5 +393,15 @@ async function sendConnect(e){
   return false;
 }
 </script>
+<script id="rw-sfx">
+/* Pacific Ridgeway UI sounds — hover tick + click pop */
+(function(){var on=true,ctx=null,last=0;
+function c(){if(!ctx){try{ctx=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}return ctx;}
+function tone(f,d,t,v){var a=c();if(!a)return;try{if(a.state==='suspended')a.resume();var o=a.createOscillator(),g=a.createGain();o.type=t||'sine';o.frequency.value=f;o.connect(g);g.connect(a.destination);var n=a.currentTime;g.gain.setValueAtTime(0.0001,n);g.gain.linearRampToValueAtTime(v||0.04,n+0.004);g.gain.exponentialRampToValueAtTime(0.0001,n+(d||0.08));o.start(n);o.stop(n+(d||0.08)+0.02);}catch(e){}}
+var SEL='.service-card,.product-card,.nav-cta,.btn-primary,.btn-outline,.btn-gold,.btn-white-outline,.nav-links a,button,a.connect-btn,.suggestion,.footer-col a';
+document.addEventListener('mouseover',function(e){if(!on||!e.target.closest)return;if(!e.target.closest(SEL))return;var t=Date.now();if(t-last<55)return;last=t;tone(880,0.045,'sine',0.02);},true);
+document.addEventListener('click',function(e){if(!on||!e.target.closest)return;if(!e.target.closest(SEL))return;tone(540,0.06,'triangle',0.05);setTimeout(function(){tone(820,0.05,'sine',0.03);},16);},true);
+})();
+</script>
 </body>
 </html>
