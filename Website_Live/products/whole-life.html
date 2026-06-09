@@ -271,6 +271,24 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
 .who-box li{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:6px;}
 .detail-disc{max-width:1000px;margin:0 auto;padding:0 2rem 50px;font-size:12px;color:var(--gray-600);line-height:1.6;}
 @media(max-width:860px){.detail-grid{grid-template-columns:1fr;}.detail-side{position:static;}}
+
+.connect-overlay{display:none;position:fixed;inset:0;background:rgba(22,32,56,.6);z-index:9998;align-items:center;justify-content:center;padding:20px;}
+.connect-overlay.open{display:flex;}
+.connect-modal{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:32px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3);}
+.connect-modal h3{color:var(--green);font-size:24px;margin-bottom:6px;}
+.connect-modal>p{color:var(--gray-600);font-size:14px;margin-bottom:20px;}
+.connect-x{position:absolute;top:12px;right:16px;background:none;border:none;font-size:28px;color:var(--gray-600);cursor:pointer;line-height:1;}
+.connect-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.connect-btn{flex:1;min-width:150px;text-align:center;text-decoration:none;background:var(--green);color:#fff;padding:13px;border-radius:8px;font-weight:600;font-size:14px;}
+.connect-btn.alt{background:var(--gold-pale);color:var(--green);border:1px solid var(--gold);}
+.connect-divider{text-align:center;margin:14px 0;position:relative;color:var(--gray-600);font-size:12px;}
+.connect-divider span{background:#fff;padding:0 12px;position:relative;z-index:1;}
+.connect-divider:before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:var(--gray-200);}
+.connect-in{width:100%;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:10px;outline:none;}
+.connect-in:focus{border-color:var(--green);}
+.connect-submit{width:100%;background:var(--green);color:#fff;border:none;padding:14px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.connect-submit:hover{background:var(--green-dark);}
+.connect-msg{margin-top:10px;font-size:13px;text-align:center;min-height:18px;}
 </style>
 </head>
 <body>
@@ -317,7 +335,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <div class="connect-box">
         <h3>Talk to a Specialist</h3>
         <p>Get straight answers from a licensed Pacific Ridgeway professional — no pressure, no obligation.</p>
-        <a class="btn-primary" href="mailto:stevenson@pacificridgewayinsurance.com?subject=Whole Life Insurance%20%E2%80%94%20I'd%20like%20to%20connect%20with%20a%20professional">Connect to a Professional</a>
+        <button class="btn-primary" onclick="openConnect()" style="width:100%;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:16px;">Connect to a Professional</button>
         <a class="btn-outline" href="../index.html#contact">Request a Free Quote</a>
       </div>
     </div>
@@ -333,5 +351,47 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
     </div>
   </div>
 </footer>
+
+<div id="connectOverlay" class="connect-overlay" onclick="if(event.target===this)closeConnect()">
+  <div class="connect-modal">
+    <button class="connect-x" onclick="closeConnect()" aria-label="Close">&times;</button>
+    <h3>Talk to a Professional</h3>
+    <p>Reach a licensed Pacific Ridgeway specialist about <strong>Whole Life Insurance</strong> — no pressure, no obligation.</p>
+    <div class="connect-actions">
+      <a class="connect-btn" href="tel:+16193748100">📞 Call 619-374-8100</a>
+      <a class="connect-btn alt" href="mailto:stevenson@pacificridgewayinsurance.com" style="flex-basis:100%;font-size:13px;word-break:break-all;">✉️ stevenson@pacificridgewayinsurance.com</a>
+    </div>
+    <div class="connect-divider"><span>or request a callback</span></div>
+    <form id="connectForm" onsubmit="return sendConnect(event)">
+      <input type="hidden" name="access_key" value="7ef0a8c3-1ab7-47b4-be69-c7ed60b4ea8c">
+      <input type="hidden" name="subject" value="New website lead — Whole Life Insurance">
+      <input type="hidden" name="from_name" value="Pacific Ridgeway Website">
+      <input type="hidden" name="interest" value="Whole Life Insurance">
+      <input class="connect-in" type="text" name="name" placeholder="Your name" required>
+      <input class="connect-in" type="tel" name="phone" placeholder="Phone number" required>
+      <input class="connect-in" type="email" name="email" placeholder="Email (optional)">
+      <button type="submit" class="connect-submit">Request My Callback</button>
+      <div id="connectMsg" class="connect-msg"></div>
+    </form>
+  </div>
+</div>
+<script>
+function openConnect(){document.getElementById('connectOverlay').classList.add('open');}
+function closeConnect(){document.getElementById('connectOverlay').classList.remove('open');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeConnect();});
+async function sendConnect(e){
+  e.preventDefault();
+  var f=e.target, msg=document.getElementById('connectMsg');
+  msg.style.color='#4b5563'; msg.textContent='Sending…';
+  try{
+    var data=Object.fromEntries(new FormData(f).entries());
+    var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+    var j=await r.json();
+    if(j.success){f.reset();msg.style.color='#2E7D5B';msg.textContent='✓ Thank you! A specialist will reach out shortly.';}
+    else{msg.style.color='#e74c3c';msg.textContent='Couldn\'t send — please call us at 619-374-8100.';}
+  }catch(err){msg.style.color='#e74c3c';msg.textContent='Couldn\'t send — please call us at 619-374-8100.';}
+  return false;
+}
+</script>
 </body>
 </html>
