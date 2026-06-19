@@ -9,9 +9,9 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --green:#1F5233;--green-dark:#162038;--green-light:#2a6b44;
-  --gold:#C9A961;--gold-light:#e0c078;--gold-pale:#f5ead4;
-  --white:#ffffff;--off-white:#F8F7F5;
+  --green:#082B63;--green-dark:#06224f;--green-light:#0c3a82;
+  --gold:#D4A12B;--gold-light:#E7C66B;--gold-pale:#eef3fb;
+  --white:#ffffff;--off-white:#F5F7FA;
   --gray-200:#e5e7eb;--gray-600:#4b5563;--gray-700:#374151;--text:#1a1a1a;
 }
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
@@ -290,6 +290,8 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
 .connect-submit:hover{background:var(--green-dark);}
 .connect-msg{margin-top:10px;font-size:13px;text-align:center;min-height:18px;}
 </style>
+<style id="blue-rebrand">.hero{background:#06224f url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2400&q=80') center/cover no-repeat !important;background-attachment:fixed !important;position:relative}.hero>*{position:relative;z-index:2}.hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,34,79,.80),rgba(8,43,99,.45) 60%,rgba(245,247,250,.95))}.hero h1,.hero h2,.hero p,.hero .hero-inner,.hero-badge{color:#fff !important}.hero-badge{background:rgba(255,255,255,.16) !important;border:1px solid rgba(255,255,255,.45) !important;color:#fff !important}.logo-circle{background:none !important;width:auto !important;height:auto !important;border-radius:0 !important;font-size:0 !important;line-height:0 !important;display:inline-flex;align-items:center}.logo-circle img{height:42px;width:auto;display:block}.hero{min-height:100vh !important;display:flex !important;align-items:center !important;padding:120px 2rem 90px !important}.hero .btn-outline{color:#fff !important;border-color:rgba(255,255,255,.85) !important;background:rgba(255,255,255,.10) !important}.hero .btn-outline:hover{background:rgba(255,255,255,.22) !important}.hero .stat-card,.hero .card{background:rgba(255,255,255,.94) !important}
+.detail-hero{background:#06224f url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=80') center/cover no-repeat !important;position:relative}.detail-hero>*{position:relative;z-index:2}.detail-hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(8,43,99,.90),rgba(8,43,99,.55) 60%,rgba(8,43,99,.28))}.detail-hero .btn-outline{color:#fff !important;border-color:rgba(255,255,255,.85) !important;background:rgba(255,255,255,.10) !important}.detail-hero .btn-outline:hover{background:rgba(255,255,255,.22) !important}</style>
 </head>
 <body>
 <nav>
@@ -387,7 +389,7 @@ async function sendConnect(e){
     var data=Object.fromEntries(new FormData(f).entries());
     var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
     var j=await r.json();
-    if(j.success){f.reset();msg.style.color='#2E7D5B';msg.textContent='✓ Thank you! A specialist will reach out shortly.';}
+    if(j.success){f.reset();msg.style.color='#163d80';msg.textContent='✓ Thank you! A specialist will reach out shortly.';}
     else{msg.style.color='#e74c3c';msg.textContent='Couldn\'t send — please call us at 619-374-8100.';}
   }catch(err){msg.style.color='#e74c3c';msg.textContent='Couldn\'t send — please call us at 619-374-8100.';}
   return false;
@@ -403,5 +405,6 @@ document.addEventListener('mouseover',function(e){if(!on||!e.target.closest)retu
 document.addEventListener('click',function(e){if(!on||!e.target.closest)return;if(!e.target.closest(SEL))return;tone(540,0.06,'triangle',0.05);setTimeout(function(){tone(820,0.05,'sine',0.03);},16);},true);
 })();
 </script>
+<script>document.querySelectorAll('.logo-circle').forEach(function(e){e.innerHTML='<img src="../pr-logo-navy.png" alt="Pacific Ridgeway">';});</script>
 </body>
 </html>
