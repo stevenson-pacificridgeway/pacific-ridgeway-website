@@ -161,8 +161,9 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
 
 /* AI WIDGET */
 .ai-widget{position:fixed;bottom:28px;right:28px;z-index:9999;}
-.ai-bubble{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--gold));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(31,82,51,.4);transition:all .3s;font-size:24px;}
-.ai-bubble:hover{transform:scale(1.1);}
+.ai-bubble{display:inline-flex;align-items:center;gap:9px;height:54px;padding:0 22px 0 17px;border-radius:30px;background:#0b1f3a;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(8,27,58,.4);transition:all .25s;font-size:16px;font-weight:700;color:#fff;white-space:nowrap;}
+.ai-bubble .ai-bubble-ico{font-size:22px;line-height:1;}
+.ai-bubble:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(8,27,58,.5);}
 .ai-panel{position:absolute;bottom:70px;right:0;width:500px;max-width:calc(100vw - 32px);background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.15);border:1px solid var(--gray-200);overflow:hidden;display:none;flex-direction:column;}
 .ai-panel.open{display:flex;}
 .ai-header{background:var(--green);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;}
@@ -682,7 +683,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <div class="ai-header-left">
         <div class="ai-avatar">🤖</div>
         <div class="ai-header-text">
-          <h4>Ridge AI</h4>
+          <h4>Pacific Ridgeway AI</h4>
           <p id="modeLabel">Helping clients &amp; agents</p>
         </div>
       </div>
@@ -709,7 +710,7 @@ footer{background:#111;color:white;padding:60px 2rem 30px;}
       <button class="ai-send" id="sendBtn" onclick="sendMessage()">➤</button>
     </div>
   </div>
-  <button class="ai-bubble" onclick="toggleChat()">🤖</button>
+  <button class="ai-bubble" onclick="toggleChat()"><span class="ai-bubble-ico">🤖</span> Pacific Ridgeway AI</button>
 </div>
 
 <script>
