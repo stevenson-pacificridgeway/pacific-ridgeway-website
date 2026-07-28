@@ -749,7 +749,7 @@ async function submitQuote(){
   var btn=p.querySelector('.form-submit');
   if(btn){btn.disabled=true;btn.textContent='Sending…';}
   try{
-    var r=await fetch('https://ridgecrm-production.up.railway.app/api/website-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,interest:interest,message:msg})});
+    var r=await fetch('https://ridgecrm-production.up.railway.app/api/website-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,interest:interest,message:msg,source:'Pacific Ridgeway'})});
     var j=await r.json().catch(function(){return {};});
     if(j&&j.ok){
       if(btn){btn.textContent="✓ Thank you — we'll be in touch!";}
