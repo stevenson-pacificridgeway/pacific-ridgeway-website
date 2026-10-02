@@ -1,0 +1,3 @@
+# Illustration Grader (private tool) — served from Railway
+/grader    /grader/    301
+/grader/*  https://illustration-grader-production.up.railway.app/:splat  200
