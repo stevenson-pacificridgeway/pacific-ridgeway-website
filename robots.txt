@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pacificridgeway.com/sitemap.xml
