@@ -194,8 +194,11 @@ h1{font-size:47px;line-height:1.04;color:var(--navy);margin:9px 0 8px;letter-spa
       <li>The four types of annuities — and which to be careful with</li>
       <li>Real examples from teachers, veterans and everyday professionals</li>
     </ul>
-    <a class="btn" id="dl" href="/indexed-annuity-secrets.pdf" download>Read your copy &rarr;</a>
-    <div class="btn-note">Free. No email required — you've already requested it.</div>
+    <!-- Opens in the browser's reader rather than downloading. #toolbar=0&navpanes=0 hides the
+         viewer chrome (download / print buttons) in Chrome and Edge. -->
+    <a class="btn" id="dl" href="/indexed-annuity-secrets.pdf#toolbar=0&amp;navpanes=0&amp;view=FitH"
+       target="_blank" rel="noopener">Read your copy &rarr;</a>
+    <div class="btn-note">Free. Opens in your browser — no download needed.</div>
   </div>
 </div></div>
 
@@ -342,16 +345,14 @@ h1{font-size:47px;line-height:1.04;color:var(--navy);margin:9px 0 8px;letter-spa
   var yt=document.getElementById('tile-yt');
   if(yt && yt.getAttribute('href')==='YOUTUBE_URL_HERE'){ yt.style.display='none'; }
 
-  /* ---- book download, with a safety net so nobody ever hits a 404 ---- */
+  /* ---- book read ---- */
+  /* The old Google Drive fallback was removed deliberately: the PDF is hosted on this domain
+     now, and a silent fallback would have put a drive.google.com link back in front of readers
+     — the exact thing the email cleanup was meant to stop. If the file ever 404s we want to
+     know about it, not paper over it. */
   var dl=document.getElementById('dl');
-  var DRIVE_FALLBACK='https://drive.google.com/file/d/1B04h822b9KiRwHJ2SOB1jshTjs9dECq9/view';
-  fetch(dl.getAttribute('href'),{method:'HEAD'}).then(function(r){
-    if(!r.ok) throw 0;
-  }).catch(function(){
-    dl.setAttribute('href',DRIVE_FALLBACK); dl.removeAttribute('download'); dl.setAttribute('target','_blank');
-  });
   dl.addEventListener('click',function(){
-    track('book_download',{book:'indexed_annuity_secrets'});
+    track('book_read',{book:'indexed_annuity_secrets'});
   });
 
   document.querySelectorAll('[data-res]').forEach(function(a){
