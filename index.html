@@ -74,7 +74,8 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-f
 /* Second team row (Operations) — a quiet rule between the two groups */
 .team-row-divider{height:1px;background:linear-gradient(90deg,transparent,#dbe4f3 20%,#dbe4f3 80%,transparent);margin:56px 0 34px;}
 /* Shown only until a real headshot is dropped into /img — see the onerror on each photo. */
-.junior-mono{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+.junior-mono[hidden]{display:none!important}   /* the hidden attribute alone loses to the display:flex below */
+  .junior-mono{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   background:radial-gradient(120% 90% at 50% 0%,#2d4372 0%,#1b2a4a 60%,#16233d 100%);}
 .junior-mono::before{content:'';width:54px;height:37px;opacity:.9;
   background:url('pr-logo-white.png') center/contain no-repeat;}
