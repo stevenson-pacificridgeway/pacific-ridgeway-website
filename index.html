@@ -71,6 +71,16 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-f
 .stat-divider{width:32px;height:3px;background:var(--gold);border-radius:2px;margin:8px 0;}
 .section{padding:80px 2rem;}
 .section-inner{max-width:1280px;margin:0 auto;}
+/* Second team row (Operations) — a quiet rule between the two groups */
+.team-row-divider{height:1px;background:linear-gradient(90deg,transparent,#dbe4f3 20%,#dbe4f3 80%,transparent);margin:56px 0 34px;}
+/* Shown only until a real headshot is dropped into /img — see the onerror on each photo. */
+.junior-mono{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:radial-gradient(120% 90% at 50% 0%,#2d4372 0%,#1b2a4a 60%,#16233d 100%);}
+.junior-mono::before{content:'';width:54px;height:37px;opacity:.9;
+  background:url('pr-logo-white.png') center/contain no-repeat;}
+.junior-mono span{color:var(--gold);font-size:40px;font-weight:700;letter-spacing:4px;
+  font-family:Georgia,serif;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.35);}
+.junior-mono::after{content:'';width:34px;height:2px;background:var(--gold);opacity:.55;border-radius:2px;}
 .section-tag{display:inline-block;background:var(--gold-pale);color:var(--green);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:16px;}
 .section-title{font-size:42px;color:var(--green);margin-bottom:16px;line-height:1.15;}
 .section-title em{color:var(--gold);font-style:italic;}
@@ -525,6 +535,77 @@ window.addEventListener('message',function(e){if(e.data&&e.data.event==='calendl
           </div>
         </div>
       </div>
+
+    </div>
+
+    <div class="team-row-divider"></div>
+    <div class="section-tag" style="margin-top:4px">Behind the Scenes</div>
+    <h2 class="section-title">Our Operations Team &mdash; <em>The Engine</em></h2>
+    <p class="section-sub">The people who keep Pacific Ridgeway running &mdash; onboarding new agents, moving cases forward, and making sure every client and advisor is looked after.</p>
+
+    <div class="junior-grid">
+      <!-- Brenda Leon -->
+      <div class="junior-card">
+        <div class="junior-photo-wrap">
+          <img loading="lazy" decoding="async" src="img/brenda-leon.jpg" alt="Brenda Leon" onerror="this.style.display='none';this.nextElementSibling.hidden=false;"/>
+          <div class="junior-mono" hidden><span>BL</span></div>
+          <div class="junior-photo-gradient"></div>
+          <div class="junior-name-overlay">
+            <h4>Brenda Leon</h4>
+            <p>Operations</p>
+          </div>
+        </div>
+        <div class="junior-body">
+          <p>Brenda keeps Pacific Ridgeway running day to day, supporting agents through onboarding and making sure nothing falls through the cracks.</p>
+          <div class="junior-tags">
+            <div class="junior-tag gold">Operations</div>
+            <div class="junior-tag">Agent Support</div>
+            <div class="junior-tag">Onboarding</div>
+          </div>
+        </div>
+      </div>
+      <!-- Mariah Stevenson -->
+      <div class="junior-card">
+        <div class="junior-photo-wrap">
+          <img loading="lazy" decoding="async" src="img/mariah-stevenson.jpg" alt="Mariah Stevenson" onerror="this.style.display='none';this.nextElementSibling.hidden=false;"/>
+          <div class="junior-mono" hidden>MS</div>
+          <div class="junior-photo-gradient"></div>
+          <div class="junior-name-overlay">
+            <h4>Mariah Stevenson</h4>
+            <p>Operations</p>
+          </div>
+        </div>
+        <div class="junior-body">
+          <p>Mariah drives operational excellence and agent development, making sure every agent has the tools, training, and support to deliver exceptional client outcomes.</p>
+          <div class="junior-tags">
+            <div class="junior-tag gold">Operations</div>
+            <div class="junior-tag">Agent Development</div>
+            <div class="junior-tag">Client Relations</div>
+          </div>
+        </div>
+      </div>
+      <!-- Codi Hawn -->
+      <div class="junior-card">
+        <div class="junior-photo-wrap">
+          <img loading="lazy" decoding="async" src="img/codi-hawn.jpg" alt="Codi Hawn" onerror="this.style.display='none';this.nextElementSibling.hidden=false;"/>
+          <div class="junior-mono" hidden><span>CH</span></div>
+          <div class="junior-photo-gradient"></div>
+          <div class="junior-name-overlay">
+            <h4>Codi Hawn</h4>
+            <p>Operations</p>
+          </div>
+        </div>
+        <div class="junior-body">
+          <p>Codi supports the agency&rsquo;s operations and agent services, helping keep licensing, onboarding, and client coordination moving.</p>
+          <div class="junior-tags">
+            <div class="junior-tag gold">Operations</div>
+            <div class="junior-tag">Agent Services</div>
+            <div class="junior-tag">Coordination</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
 
 
