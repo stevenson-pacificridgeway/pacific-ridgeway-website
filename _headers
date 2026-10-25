@@ -1,0 +1,4 @@
+/img/ltc/*
+  Access-Control-Allow-Origin: *
+/guides/*
+  Access-Control-Allow-Origin: *
