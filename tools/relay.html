@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title></head><body>
+<script>
+window.addEventListener('message', async (e) => {
+  const d = e.data || {};
+  if (d.type !== 'fetch' || !Array.isArray(d.urls)) return;
+  for (const u of d.urls) {
+    try {
+      const r = await fetch(u, {cache:'no-store'});
+      const buf = await r.arrayBuffer();
+      e.source.postMessage({type:'file', url:u, name:u.split('/').pop(), mime:r.headers.get('content-type')||'application/octet-stream', buf}, e.origin, [buf]);
+    } catch (err) {
+      e.source.postMessage({type:'error', url:u, error:String(err)}, e.origin);
+    }
+  }
+});
+parent.postMessage({type:'ready'}, '*');
+</script></body></html>
