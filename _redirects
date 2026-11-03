@@ -1,3 +1,25 @@
 # Illustration Grader (private tool) — served from Railway
 /grader    https://illustration-grader-production.up.railway.app/         200!
 /grader/*  https://illustration-grader-production.up.railway.app/:splat   200!
+
+
+# One address per page (fixes duplicate titles) - COMMAND 3 Nov
+/products/alternative-investments  /products/alternative-investments.html  301!
+/products/annuities  /products/annuities.html  301!
+/products/business-planning  /products/business-planning.html  301!
+/products/college-funding  /products/college-funding.html  301!
+/products/cpa-services  /products/cpa-services.html  301!
+/products/debt-management  /products/debt-management.html  301!
+/products/estate-planning  /products/estate-planning.html  301!
+/products/final-expense  /products/final-expense.html  301!
+/products/financial-advisory  /products/financial-advisory.html  301!
+/products/health-insurance  /products/health-insurance.html  301!
+/products/insurance-strategies  /products/insurance-strategies.html  301!
+/products/iul  /products/iul.html  301!
+/products/life-insurance  /products/life-insurance.html  301!
+/products/retirement-planning  /products/retirement-planning.html  301!
+/products/revenue-sharing  /products/revenue-sharing.html  301!
+/products/tax-planning  /products/tax-planning.html  301!
+/products/trust-planning  /products/trust-planning.html  301!
+/products/whole-life  /products/whole-life.html  301!
+/index.backup-*  /  301!
