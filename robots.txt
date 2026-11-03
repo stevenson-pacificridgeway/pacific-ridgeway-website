@@ -1,3 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /grader
+Disallow: /tools/
+Disallow: /index.backup
 Sitemap: https://pacificridgeway.com/sitemap.xml
