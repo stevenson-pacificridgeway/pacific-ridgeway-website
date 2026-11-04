@@ -1,3 +1,10 @@
+# Security headers - COMMAND 3 Nov 2026
+/*
+  Strict-Transport-Security: max-age=63072000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=(), interest-cohort=()
+  Content-Security-Policy: frame-ancestors 'self' https://ridgecrm-production.up.railway.app; object-src 'none'; base-uri 'self'; upgrade-insecure-requests
 /img/ltc/*
   Access-Control-Allow-Origin: *
 /guides/*
